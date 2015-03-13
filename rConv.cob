@@ -81,5 +81,6 @@ END-LOOP. move D to PREV.
 B7. 
     open STANDARD-OUTPUT.
     write STDOUT-RECORD from ERROR-MESS after advancing 1 line.
+    move 2 to ERR. close STANDARD-OUTPUT.
 B8. 
     goback. 
