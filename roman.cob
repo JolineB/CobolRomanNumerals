@@ -49,10 +49,8 @@ PROCEDURE DIVISION.
     write stdout-record from UNDERLINE-2 after advancing 1 line.
 
 L1. move 1 to N. move SPACES to ARRAY-AREA.
-L2. read STANDARD-INPUT into INPUT-AREA at end GO to B3.
+L2. read STANDARD-INPUT into INPUT-AREA at end perform B3 end-read.
     move IN-R to R(N).
-    if IN-R = SPACE GO to B1.
-    add 1 to N. GO to L2.
 B1. subtract a from b giving c 1 from N.
     call "rConv" using ARRAY-AREA, N, RET, TEMP.
     move 1 to RET.
