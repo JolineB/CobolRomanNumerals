@@ -51,12 +51,16 @@ PROCEDURE DIVISION.
 L1. move 1 to N. move SPACES to ARRAY-AREA.
 L2. read STANDARD-INPUT into INPUT-AREA at end perform B3 end-read.
     move IN-R to R(N).
+    if IN-R = SPACE then
+        perform B1
+    end-if.
+    add 1 to N. perform L2.
 B1. subtract a from b giving c 1 from N.
     call "rConv" using ARRAY-AREA, N, RET, TEMP.
     move 1 to RET.
     GO to B2, L1 depending on RET.
 B2. move TEMP to OUT-EQ. move ARRAY-AREA to OUT-R.
     write stdout-record from PRINT-line after advancing 1 line.
-    GO to L1.
+    perform L1.
 B3. close STANDARD-INPUT, STANDARD-OUTPUT. 
     stop run.
