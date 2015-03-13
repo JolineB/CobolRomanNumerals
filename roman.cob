@@ -55,7 +55,7 @@ L2. read STANDARD-INPUT into INPUT-AREA at end perform B3 end-read.
         perform B1
     end-if.
     add 1 to N. perform L2.
-B1. subtract a from b giving c 1 from N.
+B1. subtract 1 from N.
     call "rConv" using ARRAY-AREA, N, RET, TEMP.
     move 1 to RET.
     GO to B2, L1 depending on RET.
