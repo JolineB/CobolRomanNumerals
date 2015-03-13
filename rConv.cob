@@ -53,7 +53,7 @@ LOOP.
     else
         move 50 to D
         perform the_sum
-    end-if
+    end-if.
     if S(I) is not = 'C' then
         continue
     else
