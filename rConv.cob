@@ -79,7 +79,7 @@ the_sum.
     end-if.
 END-LOOP. move D to PREV.
 B7. 
-    open STANDARD-OUTPUT.
+    open output STANDARD-OUTPUT.
     write STDOUT-RECORD from ERROR-MESS after advancing 1 line.
     move 2 to ERR. close STANDARD-OUTPUT.
 B8. 
