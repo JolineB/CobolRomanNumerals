@@ -27,7 +27,7 @@ linkage section.
 procedure division using ARRAY-AREA, M, ERR, SUM1.
     move 0 to SUM1. move 1001 to PREV.
     perform LOOP thru END-LOOP varying I from 1 by 1
-       until I > M end-perform.
+       until I > M.
     move 1 to ERR. GO to B8.
 LOOP.
     if S(I) is not = 'I' then
@@ -39,7 +39,7 @@ LOOP.
     if S(I) is not = 'V' then
         continue
     else
-        move 5 to D. GO to 3.
+        move 5 to D
         perform the_sum
     end-if.
     if S(I) is not = 'X' then
