@@ -62,12 +62,12 @@ LOOP.
                                 open output STANDARD-OUTPUT
                                 write STDOUT-RECORD from ERROR-MESS after advancing 1 line
                                 move 2 to ERR close STANDARD-OUTPUT
-    end-if.
-    end-if.
-    end-if.
-    end-if.   
-    end-if.  
-    end-if.
+    end-if
+    end-if
+    end-if
+    end-if 
+    end-if 
+    end-if
     end-if.
 the_sum.  
     ADD D to SUM1.
