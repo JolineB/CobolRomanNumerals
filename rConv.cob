@@ -15,7 +15,7 @@ working-storage section.
 77  PREV pic S9(8).
 77  D    pic S9(4).
 01 ERROR-MESS.
-    02 FILLER pic X(25) value "Illegal Roman Numeral".
+    02 FILLER pic X(25) value "Illegal Roman Numeral ".
 
 linkage section.
 77  M    pic S99.
@@ -62,20 +62,19 @@ LOOP.
                                 open output STANDARD-OUTPUT
                                 write STDOUT-RECORD from ERROR-MESS after advancing 1 line
                                 move 2 to ERR close STANDARD-OUTPUT
-    end-if
-    end-if
-    end-if
-    end-if 
-    end-if 
-    end-if
+                            end-if
+                        end-if
+                    end-if
+                end-if 
+            end-if 
+        end-if
     end-if.
 the_sum.  
     ADD D to SUM1.
+    display SUM1.
     if D > PREV
        compute SUM1 = SUM1 - 2 * PREV
     end-if.
 END-LOOP. move D to PREV.
-B7. 
-    
 B8. 
     goback. 
