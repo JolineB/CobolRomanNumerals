@@ -30,47 +30,44 @@ procedure division using ARRAY-AREA, M, ERR, SUM1.
        until I > M.
     move 1 to ERR. GO to B8.
 LOOP.
-    if S(I) is not = 'I' then
-        continue
-    else
+    if S(I) = 'I' then
         move 1 to D
         perform the_sum
+    else
+        if S(I) = 'V' then
+            move 5 to D
+            perform the_sum
+        else
+            if S(I) = 'X' then
+                move 10 to D
+                perform the_sum
+            else
+                if S(I) = 'L' then
+                    move 50 to D
+                    perform the_sum
+                else
+                    if S(I) = 'C' then
+                        move 100 to D
+                        perform the_sum
+        
+                    else
+                        if S(I) = 'D' then
+                            move 500 to D
+                            perform the_sum
+                        else
+                            if S(I) = 'M' then
+                                move 1000 to D
+                                perform the_sum
+                            else
+                                open output STANDARD-OUTPUT
+                                write STDOUT-RECORD from ERROR-MESS after advancing 1 line
+                                move 2 to ERR close STANDARD-OUTPUT
     end-if.
-    if S(I) is not = 'V' then
-        continue
-    else
-        move 5 to D
-        perform the_sum
     end-if.
-    if S(I) is not = 'X' then
-        continue
-    else
-        move 10 to D
-        perform the_sum
     end-if.
-    if S(I) is not = 'L' then
-        continue
-    else
-        move 50 to D
-        perform the_sum
+    end-if.   
+    end-if.  
     end-if.
-    if S(I) is not = 'C' then
-        continue
-    else
-        move 100 to D
-        perform the_sum
-    end-if
-    if S(I) is not = 'D' then
-        continue
-    else
-        move 500 to D
-        perform the_sum
-    end-if.
-    if S(I) is not = 'M' then
-        perform B7 1 times
-    else
-        move 1000 to D
-        perform the_sum
     end-if.
 the_sum.  
     ADD D to SUM1.
@@ -79,8 +76,6 @@ the_sum.
     end-if.
 END-LOOP. move D to PREV.
 B7. 
-    open output STANDARD-OUTPUT.
-    write STDOUT-RECORD from ERROR-MESS after advancing 1 line.
-    move 2 to ERR. close STANDARD-OUTPUT.
+    
 B8. 
     goback. 
