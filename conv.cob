@@ -37,7 +37,7 @@ LOOP.
         if S(I) = 'V'
             move 5 to D
             perform 3
-        end-if.
+        end-if
     end-if.
 B2. IF S(I) NOT = 'X' GO TO B3 end-if.
     MOVE 10 TO D. perform 3.
