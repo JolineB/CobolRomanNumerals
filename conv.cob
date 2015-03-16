@@ -41,16 +41,31 @@ LOOP.
             if S(I) = 'X'
                 move 10 to D
                 perform 3
-            else go to B3
+            else
+                if S(I) = 'L'
+                    move 50 to D
+                    perform 3
+                else
+                    if S(I) = 'C'
+                        move 100 to D
+                        perform 3
+                    else
+                        if S(I) = 'D'
+                            move 500 to D
+                            perform 3
+                        else
+                            if S(I) = 'M'
+                                move 1000 to D
+                                perform 3
+                            else
+                                perform B7
+                            end-if
+                        end-if
+                    end-if
+                end-if
             end-if
         end-if
     end-if.
-B3. IF S(I) NOT = 'L' GO TO B4 end-if.
-    MOVE 50 TO D. perform 3.
-B4. IF S(I) NOT = 'C' GO TO B5 end-if.
-    MOVE 100 TO D. perform 3.
-B5. IF S(I) NOT = 'D' GO TO B6 end-if.
-    MOVE 500 TO D. perform 3.
 B6. IF S(I) NOT = 'M' GO TO B7 end-if.
     MOVE 1000 TO D. perform 3.
 3.  ADD D TO SUM1.
