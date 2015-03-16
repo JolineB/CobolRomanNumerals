@@ -42,7 +42,7 @@ WORKING-STORAGE SECTION.
     02 OUT-EQ pic Z(9).
 
 PROCEDURE DIVISION.
-    OPEN INPUT STANDARD-INPUT, OUTPUT STANDARD-OUTPUT.
+    open input STANDARD-INPUT, output STANDARD-OUTPUT.
     write stdout-record from TITLE-line after advancing 0 lines.
     write stdout-record from UNDERLINE-1 after advancing 1 line.
     write stdout-record from COL-HEADS after advancing 1 line.

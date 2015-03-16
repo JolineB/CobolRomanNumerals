@@ -32,6 +32,7 @@ procedure division using ARRAY-AREA, M, ERR, SUM1.
 LOOP.
     if S(I) = 'I' then
         move 1 to D
+        display "found I"
         perform the_sum
     else
         if S(I) = 'V' then
@@ -49,7 +50,6 @@ LOOP.
                     if S(I) = 'C' then
                         move 100 to D
                         perform the_sum
-        
                     else
                         if S(I) = 'D' then
                             move 500 to D
@@ -70,7 +70,7 @@ LOOP.
         end-if
     end-if.
 the_sum.  
-    ADD D to SUM1.
+    add D to SUM1.
     display SUM1.
     if D > PREV
        compute SUM1 = SUM1 - 2 * PREV
