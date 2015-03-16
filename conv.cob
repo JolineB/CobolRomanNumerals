@@ -37,10 +37,14 @@ LOOP.
         if S(I) = 'V'
             move 5 to D
             perform 3
+        else
+            if S(I) = 'X'
+                move 10 to D
+                perform 3
+            else go to B3
+            end-if
         end-if
     end-if.
-B2. IF S(I) NOT = 'X' GO TO B3 end-if.
-    MOVE 10 TO D. perform 3.
 B3. IF S(I) NOT = 'L' GO TO B4 end-if.
     MOVE 50 TO D. perform 3.
 B4. IF S(I) NOT = 'C' GO TO B5 end-if.
