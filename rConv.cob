@@ -71,7 +71,6 @@ LOOP.
     end-if.
 the_sum.  
     add D to SUM1.
-    display SUM1.
     if D > PREV
        compute SUM1 = SUM1 - 2 * PREV
     end-if.
