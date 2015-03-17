@@ -42,6 +42,7 @@ WORKING-STORAGE SECTION.
     02 OUT-EQ PICTURE Z(9).
 01 total pic 99 value zero.
 01 len pic 99 value zero.
+01 inputNum pic X(80).
 
 PROCEDURE DIVISION.
     OPEN INPUT STANDARD-INPUT, OUTPUT STANDARD-OUTPUT.
@@ -50,10 +51,10 @@ PROCEDURE DIVISION.
     WRITE STDOUT-RECORD FROM COL-HEADS AFTER ADVANCING 1 LINE.
     WRITE STDOUT-RECORD FROM UNDERLINE-2 AFTER ADVANCING 1 LINE.
 L1. MOVE 1 TO N. MOVE SPACES TO ARRAY-AREA.
-L2. accept STANDARD-INPUT.
-    move STDIN-RECORD to ARRAY-AREA.
-    inspect STANDARD-INPUT tallying total for all characters before initial '\0'.
-    inspect STANDARD-INPUT tallying len for trailing spaces.
+L2. accept inputNum.
+    move inputNum to ARRAY-AREA.
+    inspect inputNum tallying total for all characters before initial '\0'.
+    inspect inputNum tallying len for trailing spaces.
     compute len = total - len.
     move len to N.
 
