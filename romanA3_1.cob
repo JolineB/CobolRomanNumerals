@@ -17,7 +17,7 @@ WORKING-STORAGE SECTION.
 77  TEMP PICTURE S9(8).
 77  RET  PICTURE S9 comp-3.
 01  ARRAY-AREA.
-    02 R PICTURE X(1) OCCURS 30 TIMES.
+    05 R PICTURE X(1) OCCURS 30 TIMES.
 01  INPUT-AREA.
     02 IN-R   PICTURE X(1).
     02 FILLER PICTURE X(79).
@@ -54,8 +54,9 @@ L2. accept STANDARD-INPUT.
     move STANDARD-INPUT to R.
     inspect STANDARD-INPUT tallying total for all characters before initial '\0'.
     inspect STANDARD-INPUT tallying len for trailing spaces.
-    compute total - len.
+    compute len = total - len.
     move len to N.
+
 B1. SUBTRACT 1 FROM N.
     CALL "conv" USING ARRAY-AREA, N, RET, TEMP.
     MOVE 1 TO RET.
