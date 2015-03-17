@@ -57,7 +57,8 @@ B1. SUBTRACT 1 FROM N.
     MOVE 1 TO RET.
     evaluate RET
         when 1 perform B2
-        when 0 perform L1.
+        when 0 perform L1
+    end-evaluate.
 B2. MOVE TEMP TO OUT-EQ. MOVE ARRAY-AREA TO OUT-R.
     WRITE STDOUT-RECORD FROM PRINT-LINE AFTER ADVANCING 1 LINE.
     GO TO L1.
