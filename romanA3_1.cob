@@ -17,7 +17,7 @@ WORKING-STORAGE SECTION.
 77  TEMP PICTURE S9(8).
 77  RET  PICTURE S9 comp-3.
 01  ARRAY-AREA.
-    05 R PICTURE X(1) OCCURS 80 TIMES.
+    05 R PICTURE X OCCURS 80 TIMES.
 01  INPUT-AREA.
     02 IN-R   PICTURE X(1).
     02 FILLER PICTURE X(79).
@@ -51,7 +51,7 @@ PROCEDURE DIVISION.
     WRITE STDOUT-RECORD FROM UNDERLINE-2 AFTER ADVANCING 1 LINE.
 L1. MOVE 1 TO N. MOVE SPACES TO ARRAY-AREA.
 L2. accept STANDARD-INPUT.
-    move STANDARD-INPUT to R.
+    move STANDARD-INPUT to ARRAY-AREA.
     inspect STANDARD-INPUT tallying total for all characters before initial '\0'.
     inspect STANDARD-INPUT tallying len for trailing spaces.
     compute len = total - len.
