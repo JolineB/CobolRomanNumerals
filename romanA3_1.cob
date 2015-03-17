@@ -49,7 +49,7 @@ PROCEDURE DIVISION.
     WRITE STDOUT-RECORD FROM UNDERLINE-2 AFTER ADVANCING 1 LINE.
 L1. MOVE 1 TO N. MOVE SPACES TO ARRAY-AREA.
 L2. READ STANDARD-INPUT INTO INPUT-AREA AT END perform B3 end-read.
-    perform Loop until IN-R = '\0'. perform B1.
+    perform Loop until IN-R = space. perform B1.
     add 1 to N. perform L2.
 Loop.
     move IN-R to R(N).
