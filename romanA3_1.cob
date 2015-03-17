@@ -51,7 +51,7 @@ PROCEDURE DIVISION.
     WRITE STDOUT-RECORD FROM UNDERLINE-2 AFTER ADVANCING 1 LINE.
 L1. MOVE 1 TO N. MOVE SPACES TO ARRAY-AREA.
 L2. accept STANDARD-INPUT.
-    move STANDARD-INPUT to ARRAY-AREA.
+    move STDIN-RECORD to ARRAY-AREA.
     inspect STANDARD-INPUT tallying total for all characters before initial '\0'.
     inspect STANDARD-INPUT tallying len for trailing spaces.
     compute len = total - len.
