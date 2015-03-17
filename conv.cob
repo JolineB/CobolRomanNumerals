@@ -31,7 +31,8 @@ PROCEDURE DIVISION USING ARRAY-AREA, M, ERR, SUM1.
     MOVE 1 TO ERR. GO TO B8.
 LOOP.
     IF S(I) = 'I'
-        MOVE 1 TO D 
+        MOVE 1 TO D
+        display 'Party rock' 
         perform 3
     else
         if S(I) = 'V'
