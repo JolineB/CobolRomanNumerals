@@ -32,31 +32,24 @@ PROCEDURE DIVISION USING ARRAY-AREA, M, ERR, SUM1.
 LOOP.
     IF S(I) = 'I'
         MOVE 1 TO D
-        perform 3
     else
         if S(I) = 'V'
             move 5 to D
-            perform 3
         else
             if S(I) = 'X'
                 move 10 to D
-                perform 3
             else
                 if S(I) = 'L'
                     move 50 to D
-                    perform 3
                 else
                     if S(I) = 'C'
                         move 100 to D
-                        perform 3
                     else
                         if S(I) = 'D'
                             move 500 to D
-                            perform 3
                         else
                             if S(I) = 'M'
                                 move 1000 to D
-                                perform 3
                             else
                                 perform B7
                             end-if
