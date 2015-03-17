@@ -40,6 +40,8 @@ WORKING-STORAGE SECTION.
     02 OUT-R  PICTURE X(30).
     02 FILLER PICTURE X(3) VALUE SPACES.
     02 OUT-EQ PICTURE Z(9).
+01 total pic 99 value zero.
+01 len pic 99 value zero.
 
 PROCEDURE DIVISION.
     OPEN INPUT STANDARD-INPUT, OUTPUT STANDARD-OUTPUT.
@@ -48,11 +50,12 @@ PROCEDURE DIVISION.
     WRITE STDOUT-RECORD FROM COL-HEADS AFTER ADVANCING 1 LINE.
     WRITE STDOUT-RECORD FROM UNDERLINE-2 AFTER ADVANCING 1 LINE.
 L1. MOVE 1 TO N. MOVE SPACES TO ARRAY-AREA.
-L2. perform Loop until IN-R = '\0'. perform B1.
-    add 1 to N. perform L2.
-Loop.
-    READ STANDARD-INPUT INTO INPUT-AREA AT END perform B3 end-read.
-    move IN-R to R(N).
+L2. accept STANDARD-INPUT.
+    move STANDARD-INPUT to R.
+    inspect STANDARD-INPUT tallying total for all characters before initial '\0'.
+    inspect STANDARD-INPUT tallying len for trailing spaces.
+    compute total - len.
+    move len to N.
 B1. SUBTRACT 1 FROM N.
     CALL "conv" USING ARRAY-AREA, N, RET, TEMP.
     MOVE 1 TO RET.
