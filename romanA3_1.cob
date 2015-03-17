@@ -52,9 +52,13 @@ PROCEDURE DIVISION.
     WRITE STDOUT-RECORD FROM UNDERLINE-2 AFTER ADVANCING 1 LINE.
 L1. MOVE 1 TO N. MOVE SPACES TO ARRAY-AREA.
 L2. accept inputNum.
+    display "hello".
     move inputNum to ARRAY-AREA.
+    display "i'm here".
     inspect inputNum tallying total for all characters before initial '\0'.
+    display "margerine".
     inspect inputNum tallying len for trailing spaces.
+    display "waddup".
     compute len = total - len.
     move len to N.
 
