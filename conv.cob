@@ -66,8 +66,6 @@ LOOP.
             end-if
         end-if
     end-if.
-B6. IF S(I) NOT = 'M' GO TO B7 end-if.
-    MOVE 1000 TO D. perform 3.
 3.  ADD D TO SUM1.
     IF D IS GREATER THAN PREV
        COMPUTE SUM1 = SUM1 - 2 * PREV
