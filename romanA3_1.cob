@@ -55,7 +55,10 @@ L2. READ STANDARD-INPUT INTO INPUT-AREA AT END GO TO B3 end-read.
 B1. SUBTRACT 1 FROM N.
     CALL "conv" USING ARRAY-AREA, N, RET, TEMP.
     MOVE 1 TO RET.
-    GO TO B2, L1 DEPENDING ON RET.
+    evaluate RET
+        when 1 perform B2
+        when 0 perform L1
+        when other perform error.
 B2. MOVE TEMP TO OUT-EQ. MOVE ARRAY-AREA TO OUT-R.
     WRITE STDOUT-RECORD FROM PRINT-LINE AFTER ADVANCING 1 LINE.
     GO TO L1.
