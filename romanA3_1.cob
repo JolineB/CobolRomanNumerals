@@ -42,7 +42,8 @@ WORKING-STORAGE SECTION.
     02 OUT-EQ PICTURE Z(9).
 01 total pic 99 value zero.
 01 len pic 99 value zero.
-01 inputNum pic X(80).
+01 inputNum 
+    02 inNum pic X(80).
 
 PROCEDURE DIVISION.
     OPEN INPUT STANDARD-INPUT, OUTPUT STANDARD-OUTPUT.
