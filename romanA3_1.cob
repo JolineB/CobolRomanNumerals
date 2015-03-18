@@ -53,10 +53,10 @@ PROCEDURE DIVISION.
     WRITE STDOUT-RECORD FROM UNDERLINE-2 AFTER ADVANCING 1 LINE.
 L1. MOVE 1 TO N. MOVE SPACES TO ARRAY-AREA.
 L2. accept STANDARD-INPUT.
-    read STANDARD-INPUT[1] into inputNum at end perform B3 end-read.
-    move inputNum to ARRAY-AREA.
-    inspect inputNum tallying total for all characters before initial '\0'.
-    inspect inputNum tallying len for trailing spaces.
+    read STANDARD-INPUT into inputNum at end perform B3 end-read.
+    move inNum to ARRAY-AREA.
+    inspect STANDARD-INPUT tallying total for all characters before initial '\0'.
+    inspect STANDARD-INPUT tallying len for trailing spaces.
     compute len = total - len.
     move len to N.
 
