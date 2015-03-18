@@ -35,6 +35,7 @@ WORKING-STORAGE SECTION.
 01  UNDERLINE-2.
     02 FILLER PICTURE X(45) VALUE
        ' ------------------------------   -----------'.
+    02  filler pic X
 01  PRINT-LINE.
     02 FILLER PICTURE X VALUE SPACE.
     02 OUT-R  PICTURE X(30).
@@ -43,6 +44,8 @@ WORKING-STORAGE SECTION.
 01  total pic 99 value zero.
 01  len pic 99 value zero.
 01  inputNum pic X(80).
+01  question.
+    02 filler pic X(17) value ' Continue? (Y/N)'
 
 PROCEDURE DIVISION.
     OPEN INPUT STANDARD-INPUT, OUTPUT STANDARD-OUTPUT.
@@ -67,7 +70,7 @@ B1. CALL "conv" USING ARRAY-AREA, N, RET, TEMP.
 B2. MOVE TEMP TO OUT-EQ. MOVE ARRAY-AREA TO OUT-R.
     WRITE STDOUT-RECORD FROM PRINT-LINE AFTER ADVANCING 1 LINE.
     perform L1.
-B3. write "Continue? (Y/N) ".
+B3. write STDOUT-RECORD from question after advancing 1 line.
     read STANDARD-INPUT into INPUT-AREA end-read.
     if IN-R = 'Y'
         perform L1
