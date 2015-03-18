@@ -67,7 +67,7 @@ B1. CALL "conv" USING ARRAY-AREA, N, RET, TEMP.
 B2. MOVE TEMP TO OUT-EQ. MOVE ARRAY-AREA TO OUT-R.
     WRITE STDOUT-RECORD FROM PRINT-LINE AFTER ADVANCING 1 LINE.
     perform L1.
-B3. write "Continue? (Y/N)" after advancing 1 line.
+B3. write 'Continue? (Y/N)'' after advancing 1 line.
     accept INPUT-AREA.
     if IN-R = 'Y'
         perform L1
