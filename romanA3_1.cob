@@ -58,8 +58,7 @@ L2. read STANDARD-INPUT into inputNum at end perform B3 end-read.
     compute len = total - len.
     move len to N.
 
-B1. SUBTRACT 1 FROM N.
-    CALL "conv" USING ARRAY-AREA, N, RET, TEMP.
+B1. CALL "conv" USING ARRAY-AREA, N, RET, TEMP.
     MOVE 1 TO RET.
     evaluate RET
         when 1 perform B2
