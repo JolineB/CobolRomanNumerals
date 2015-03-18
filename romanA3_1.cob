@@ -40,10 +40,9 @@ WORKING-STORAGE SECTION.
     02 OUT-R  PICTURE X(30).
     02 FILLER PICTURE X(3) VALUE SPACES.
     02 OUT-EQ PICTURE Z(9).
-01 total pic 99 value zero.
-01 len pic 99 value zero.
-01 inputNum.
-    02 inNum pic X(80).
+01  total pic 99 value zero.
+01  len pic 99 value zero.
+01  inputNum pic X(80).
 
 PROCEDURE DIVISION.
     OPEN INPUT STANDARD-INPUT, OUTPUT STANDARD-OUTPUT.
@@ -54,7 +53,7 @@ PROCEDURE DIVISION.
 L1. MOVE 1 TO N. MOVE SPACES TO ARRAY-AREA.
 L2. accept STANDARD-INPUT.
     read STANDARD-INPUT into inputNum at end perform B3 end-read.
-    move inNum to ARRAY-AREA.
+    move inputNum to ARRAY-AREA.
     inspect STANDARD-INPUT tallying total for all characters before initial '\0'.
     inspect STANDARD-INPUT tallying len for trailing spaces.
     compute len = total - len.
