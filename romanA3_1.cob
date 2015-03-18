@@ -72,15 +72,15 @@ B2. MOVE TEMP TO OUT-EQ. MOVE ARRAY-AREA TO OUT-R.
     WRITE STDOUT-RECORD FROM PRINT-LINE AFTER ADVANCING 1 LINE.
     perform L1.
 B3. write STDOUT-RECORD from question after advancing 1 line.
-    read STANDARD-INPUT into INPUT-AREA end-read.
-    if IN-R = 'Y'
+    read STANDARD-INPUT into INPUT-AREA at end perform B4 end-read.
+B4. if IN-R = 'Y'
         perform L1
     else
         if IN-R = 'N'
-            perform B4
+            perform B5
         else
             perform B3
         end-if
     end-if.
-B4. CLOSE STANDARD-INPUT, STANDARD-OUTPUT. 
+B5. CLOSE STANDARD-INPUT, STANDARD-OUTPUT. 
     STOP RUN.
