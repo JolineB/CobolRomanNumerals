@@ -35,7 +35,7 @@ WORKING-STORAGE SECTION.
 01  UNDERLINE-2.
     02 FILLER PICTURE X(45) VALUE
        ' ------------------------------   -----------'.
-    02  filler pic X
+    02  filler pic X value space.
 01  PRINT-LINE.
     02 FILLER PICTURE X VALUE SPACE.
     02 OUT-R  PICTURE X(30).
@@ -45,7 +45,8 @@ WORKING-STORAGE SECTION.
 01  len pic 99 value zero.
 01  inputNum pic X(80).
 01  question.
-    02 filler pic X(17) value ' Continue? (Y/N)'
+    02 filler pic X(17) value ' Continue? (Y/N)'.
+    02  filler pic X value space.
 
 PROCEDURE DIVISION.
     OPEN INPUT STANDARD-INPUT, OUTPUT STANDARD-OUTPUT.
