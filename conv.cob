@@ -1,34 +1,34 @@
-IDENTIFICATION DIVISION.
-PROGRAM-ID. conv.
-ENVIRONMENT DIVISION.
-INPUT-OUTPUT SECTION.
-FILE-CONTROL.
-    SELECT STANDARD-OUTPUT ASSIGN TO DISPLAY.
+identification division.
+program-id. rConv.
+environment division.
+input-output section.
+file-control.
+    select STANDARD-OUTPUT assign to display.
 
-DATA DIVISION.
-FILE SECTION.
-FD STANDARD-OUTPUT.
-    01 STDOUT-RECORD  PICTURE X(80).
+data division.
+file section.
+fd STANDARD-OUTPUT.
+    01 STDOUT-RECORD  pic X(80).
 
-WORKING-STORAGE SECTION.
-77  I    PICTURE S99.
-77  PREV PICTURE S9(8).
-77  D    PICTURE S9(4).
+working-storage section.
+77  I    pic S99.
+77  PREV pic S9(8).
+77  D    pic S9(4).
 01 ERROR-MESS.
-    02 FILLER PICTURE X(22) VALUE ' ILLEGAL ROMAN NUMERAL'.
+    02 FILLER pic X(25) value "Illegal Roman Numeral ".
 
-LINKAGE SECTION.
-77  M    PICTURE S99.
-77  ERR  PICTURE S9 comp-3.
-77  SUM1 PICTURE S9(8).
+linkage section.
+77  M    pic S99.
+77  ERR  pic S9 comp-3.
+77  SUM1 pic S9(8).
 01  ARRAY-AREA.
-    02 S PICTURE X(1) OCCURS 30 TIMES.
+    02 S pic X(1) occurs 30 times.
 
-PROCEDURE DIVISION USING ARRAY-AREA, M, ERR, SUM1.
-    MOVE ZERO TO SUM1. MOVE 1001 TO PREV.
-    PERFORM LOOP THRU END-LOOP VARYING I FROM 1 BY 1
-       UNTIL I IS GREATER THAN M.
-    MOVE 1 TO ERR. GO TO B8.
+procedure division using ARRAY-AREA, M, ERR, SUM1.
+    move 0 to SUM1. move 1001 to PREV.
+    perform LOOP thru END-LOOP varying I from 1 by 1
+       until I > M.
+    move 1 to ERR. GO to B8.
 LOOP.
     if S(I) = 'I'
         MOVE 1 TO D

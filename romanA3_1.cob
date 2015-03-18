@@ -1,46 +1,45 @@
-IDENTIFICATION DIVISION.
-PROGRAM-ID. ROMANNUMERALS.
-ENVIRONMENT DIVISION.
-INPUT-OUTPUT SECTION.
-FILE-CONTROL.
+identification division.
+program-id. romannumerals.
+environment division.
+input-output section.
+file-control.
     SELECT STANDARD-INPUT ASSIGN TO KEYBOARD.
     SELECT STANDARD-OUTPUT ASSIGN TO DISPLAY.
 
-DATA DIVISION.
-FILE SECTION.
+data division.
+file section.
 FD STANDARD-INPUT.
-    01 STDIN-RECORD   PICTURE X(80).
+    01 STDIN-RECORD   pic X(80).
 FD STANDARD-OUTPUT.
-    01 STDOUT-RECORD  PICTURE X(80).
-WORKING-STORAGE SECTION.
-77  N    PICTURE S99.
-77  TEMP PICTURE S9(8).
-77  RET  PICTURE S9 comp-3.
+    01 STDOUT-RECORD  pic X(80).
+working-storage section.
+77  N    pic S99.
+77  TEMP pic S9(8).
+77  RET  pic S9 comp-3.
 01  ARRAY-AREA.
-    05 R PICTURE X OCCURS 80 TIMES.
+    02 R pic X(1) occurs 30 times.
 01  INPUT-AREA.
-    02 IN-R   PICTURE X(1).
-    02 FILLER PICTURE X(79).
-01  TITLE-LINE.
-    02 FILLER PICTURE X(11) VALUE SPACES.
-    02 FILLER PICTURE X(24) VALUE 'ROMAN NUMBER EQUIVALENTS'.
+    02 IN-R   pic X(1).
+    02 filler pic X(79).
+01  TITLE-line.
+    02 filler pic X(11) value spaces.
+    02 filler pic X(24) value "ROMAN NUMBER EQUIVALENTS".
 01  UNDERLINE-1.
-    02 FILLER PICTURE X(45) VALUE 
-       ' --------------------------------------------'.
+    02 filler pic X(45) value 
+       " --------------------------------------------".
 01  COL-HEADS.
-    02 FILLER PICTURE X(9) VALUE SPACES.
-    02 FILLER PICTURE X(12) VALUE 'ROMAN NUMBER'.
-    02 FILLER PICTURE X(13) VALUE SPACES.
-    02 FILLER PICTURE X(11) VALUE 'DEC. EQUIV.'.
+    02 filler pic X(9) value spaces.
+    02 filler pic X(12) value "ROMAN NUMBER".
+    02 filler pic X(13) value spaces.
+    02 filler pic X(11) value "DEC. EQUIV.".
 01  UNDERLINE-2.
-    02 FILLER PICTURE X(45) VALUE
-       ' ------------------------------   -----------'.
-    02  filler pic X value space.
-01  PRINT-LINE.
-    02 FILLER PICTURE X VALUE SPACE.
-    02 OUT-R  PICTURE X(30).
-    02 FILLER PICTURE X(3) VALUE SPACES.
-    02 OUT-EQ PICTURE Z(9).
+    02 filler pic X(45) value
+       " ------------------------------   -----------".
+01  PRINT-line.
+    02 filler pic X value space.
+    02 OUT-R  pic X(30).
+    02 filler pic X(3) value space.
+    02 OUT-EQ pic Z(9).
 01  total pic 99 value zero.
 01  len pic 99 value zero.
 01  inputNum pic X(80).
@@ -48,13 +47,13 @@ WORKING-STORAGE SECTION.
     02 filler pic X(17) value ' Continue? (Y/N)'.
     02  filler pic X value space.
 
-PROCEDURE DIVISION.
-    OPEN INPUT STANDARD-INPUT, OUTPUT STANDARD-OUTPUT.
-    WRITE STDOUT-RECORD FROM TITLE-LINE AFTER ADVANCING 0 LINES.
-    WRITE STDOUT-RECORD FROM UNDERLINE-1 AFTER ADVANCING 1 LINE.
-    WRITE STDOUT-RECORD FROM COL-HEADS AFTER ADVANCING 1 LINE.
-    WRITE STDOUT-RECORD FROM UNDERLINE-2 AFTER ADVANCING 1 LINE.
-L1. MOVE 1 TO N. MOVE SPACES TO ARRAY-AREA.
+procedure division.
+    open input STANDARD-INPUT, output STANDARD-OUTPUT.
+    write STDOUT-RECORD  from TITLE-line after advancing 0 lines.
+    write STDOUT-RECORD  from UNDERLINE-1 after advancing 1 line.
+    write STDOUT-RECORD  from COL-HEADS after advancing 1 line.
+    write STDOUT-RECORD  from UNDERLINE-2 after advancing 1 line.
+L1. move 1 to N. move SPACES to ARRAY-AREA.
 L2. read STANDARD-INPUT into inputNum at end perform B3 end-read.
     move inputNum to ARRAY-AREA.
     inspect inputNum tallying total for all characters before initial '\0'.
@@ -62,14 +61,14 @@ L2. read STANDARD-INPUT into inputNum at end perform B3 end-read.
     compute len = total - len.
     move len to N.
 
-B1. CALL "conv" USING ARRAY-AREA, N, RET, TEMP.
-    MOVE 1 TO RET.
+B1. call "conv" using ARRAY-AREA, N, RET, TEMP.
+    move 1 TO RET.
     evaluate RET
         when 1 perform B2
         when 0 perform L1
     end-evaluate.
-B2. MOVE TEMP TO OUT-EQ. MOVE ARRAY-AREA TO OUT-R.
-    WRITE STDOUT-RECORD FROM PRINT-LINE AFTER ADVANCING 1 LINE.
+B2. move TEMP TO OUT-EQ. move ARRAY-AREA to OUT-R.
+    write STDOUT-RECORD from PRINT-LINE after advancing 1 LINE.
     perform L1.
 B3. write STDOUT-RECORD from question after advancing 1 line.
     read STANDARD-INPUT into INPUT-AREA at end perform B4 end-read.
@@ -82,5 +81,5 @@ B4. if IN-R = 'Y'
             perform B3
         end-if
     end-if.
-B5. CLOSE STANDARD-INPUT, STANDARD-OUTPUT. 
-    STOP RUN.
+B5. close STANDARD-INPUT, STANDARD-OUTPUT. 
+    stop run.
