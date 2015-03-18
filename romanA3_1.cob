@@ -79,7 +79,7 @@ B3. write STDOUT-RECORD from question after advancing 1 line.
         if IN-R = 'N'
             perform B4
         else
-            perform B3.
+            perform B3
         end-if
     end-if.
 B4. CLOSE STANDARD-INPUT, STANDARD-OUTPUT. 

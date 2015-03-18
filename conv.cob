@@ -30,7 +30,7 @@ PROCEDURE DIVISION USING ARRAY-AREA, M, ERR, SUM1.
        UNTIL I IS GREATER THAN M.
     MOVE 1 TO ERR. GO TO B8.
 LOOP.
-    IF S(I) = 'I'
+    if S(I) = 'I'
         MOVE 1 TO D
     else
         if S(I) = 'V'
