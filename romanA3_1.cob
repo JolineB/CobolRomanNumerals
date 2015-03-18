@@ -68,7 +68,7 @@ B2. MOVE TEMP TO OUT-EQ. MOVE ARRAY-AREA TO OUT-R.
     WRITE STDOUT-RECORD FROM PRINT-LINE AFTER ADVANCING 1 LINE.
     perform L1.
 B3. write 'Continue? (Y/N)'' after advancing 1 line.
-    accept INPUT-AREA.
+    read STANDARD-INPUT into INPUT-AREA end-read.
     if IN-R = 'Y'
         perform L1
     else
